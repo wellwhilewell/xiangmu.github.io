@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基因编辑益生菌 - 抗炎抗抑郁项目</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#10b981',
+                        accent: '#8b5cf6',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            }
+            .bg-gradient-tech {
+                background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(16,185,129,0.05) 100%);
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-dna text-primary text-2xl"></i>
+                <h1 class="text-xl font-heading font-bold text-primary">益生菌基因工程</h1>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#overview" class="font-medium hover:text-primary transition-colors">项目概述</a>
+                <a href="#inflammation" class="font-medium hover:text-primary transition-colors">炎症监测</a>
+                <a href="#brain-gut" class="font-medium hover:text-primary transition-colors">脑肠轴通路</a>
+                <a href="#strains" class="font-medium hover:text-primary transition-colors">菌种选择</a>
+                <a href="#capsule" class="font-medium hover:text-primary transition-colors">光电胶囊</a>
+                <a href="#safety" class="font-medium hover:text-primary transition-colors">安全机制</a>
+                <a href="#team" class="font-medium hover:text-primary transition-colors">项目团队</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-dark text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2 flex flex-col gap-3">
+                <a href="#overview" class="py-2 font-medium hover:text-primary transition-colors">项目概述</a>
+                <a href="#inflammation" class="py-2 font-medium hover:text-primary transition-colors">炎症监测</a>
+                <a href="#brain-gut" class="py-2 font-medium hover:text-primary transition-colors">脑肠轴通路</a>
+                <a href="#strains" class="py-2 font-medium hover:text-primary transition-colors">菌种选择</a>
+                <a href="#capsule" class="py-2 font-medium hover:text-primary transition-colors">光电胶囊</a>
+                <a href="#safety" class="py-2 font-medium hover:text-primary transition-colors">安全机制</a>
+                <a href="#team" class="py-2 font-medium hover:text-primary transition-colors">项目团队</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-28 pb-16 bg-gradient-tech">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-heading font-bold text-dark mb-6 text-shadow">
+                    基因编辑益生菌<br>抗炎抗抑郁研究
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    利用基因编辑技术改造植物乳杆菌，精准识别肠道炎症标志物（NO、硫代硫酸盐），<br class="hidden sm:block">
+                    特异性释放抗炎因子，通过脑肠轴通路缓解抑郁症和炎症反应，兼具安全性与有效性
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#overview" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                        <i class="fa-solid fa-book mr-2"></i>了解详情
+                    </a>
+                    <a href="#team" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">
+                        <i class="fa-solid fa-users mr-2"></i>项目团队
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目概述 -->
+    <section id="overview" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">项目概述</h2>
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-microscope text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-heading font-semibold mb-3">核心技术原理</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                本项目核心是通过基因编辑技术改造植物乳杆菌，使其具备智能响应肠道炎症的能力：
+                                工程菌可特异性识别肠道炎症产生的一氧化氮(NO)和硫代硫酸盐两种标志物，通过AND逻辑门调控系统启动抗炎因子表达，
+                                所产生的抗炎因子通过脑肠轴通路作用于中枢神经系统，从而同时缓解肠道炎症和抑郁症状。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-shield-halved text-secondary text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-heading font-semibold mb-3">项目创新点</h3>
+                            <ul class="text-gray-700 space-y-2 leading-relaxed">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-secondary mt-1 mr-2"></i>
+                                    <span>双重标志物识别系统，通过AND逻辑门实现炎症精准检测，避免假阳性触发</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-secondary mt-1 mr-2"></i>
+                                    <span>利用脑肠轴天然通路，实现肠道局部干预到中枢神经调节的跨系统治疗</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-secondary mt-1 mr-2"></i>
+                                    <span>双重安全机制设计，确保工程菌体外排出后死亡、体内异位转移后死亡</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-check-circle text-secondary mt-1 mr-2"></i>
+                                    <span>光电胶囊实时监测与激活，实现治疗过程的可视化和可控化</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-primary p-5 rounded-r">
+                        <p class="text-gray-700 italic leading-relaxed">
+                            核心目标：构建智能响应型工程益生菌，实现肠道炎症的精准识别与靶向干预，为抑郁症和炎症性肠病提供新型微生态疗法，
+                            解决现有治疗手段靶向性差、副作用大的问题。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 炎症监测 -->
+    <section id="inflammation" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">炎症监测机制</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 mb-8 card-hover">
+                    <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                        <i class="fa-solid fa-magnifying-glass-chart text-primary mr-3"></i>
+                        炎症标志物产生机制
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        肠道炎症发生时会触发双重标志物释放，为工程菌的精准识别提供生物学基础：
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border border-gray-200 rounded-lg p-5 hover:border-primary transition-colors">
+                            <h4 class="font-semibold text-primary mb-3">一氧化氮(NO)产生途径</h4>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                肠道炎症引发氧化应激反应，产生活性氧、过氧化氢等物质，刺激免疫细胞大量合成诱导型一氧化氮合酶(iNOS)，
+                                该酶催化L-精氨酸生成高浓度一氧化氮(NO)，成为炎症的重要特征性标志物。
+                            </p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-5 hover:border-primary transition-colors">
+                            <h4 class="font-semibold text-primary mb-3">硫代硫酸盐产生途径</h4>
+                            <p class="text-gray-700 leading-relaxed text-sm">
+                                肠道炎症导致黏膜渗血，红细胞破裂释放大量血红素，肠道菌群通过代谢作用将血红素转化为硫代硫酸盐，
+                                该过程必须依赖肠道菌群参与，成为肠道特异性炎症的标志物。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-5 mb-6">
+                        <h4 class="font-semibold mb-3">标志物选择的科学依据</h4>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-3 ml-2 leading-relaxed">
+                            <li>选择硫代硫酸盐作为核心标志物：该物质的产生必须经过肠道菌群代谢，可特异性指示肠道炎症，避免全身性炎症的干扰</li>
+                            <li>补充NO作为验证标志物：硫代硫酸盐可能受饮食、菌群种类等非炎症因素影响，加入NO构成AND逻辑门，仅当两种标志物同时存在时才判定为肠道炎症，大幅提升识别特异性</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                            <i class="fa-solid fa-dna text-accent mr-3"></i>
+                            启动子系统设计
+                        </h3>
+                        <ul class="space-y-4 text-gray-700 leading-relaxed">
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-accent font-semibold">1</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-accent">PnorV启动子 (BBa_K1153000)：</span>
+                                    <p class="text-sm mt-1">由一氧化氮(NO)特异性激活，对NO浓度变化高度敏感，无NO时保持静默状态</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-accent font-semibold">2</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-accent">PphsA启动子 (BBa_K3156678)：</span>
+                                    <p class="text-sm mt-1">由硫代硫酸盐特异性激活，仅在肠道菌群代谢产生的硫代硫酸盐达到阈值时启动</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                            <i class="fa-solid fa-gears text-accent mr-3"></i>
+                            LuxI/LuxR调控系统
+                        </h3>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-accent font-semibold">A</span>
+                                </div>
+                                <div>
+                                    <p>PnorV启动子下游接入LuxI基因，激活后表达LuxI酶，该酶可催化细胞中的ACP（酰基载体蛋白）转化为AHL（酰基高丝氨酸内酯）</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-accent font-semibold">B</span>
+                                </div>
+                                <div>
+                                    <p>PphsA启动子下游接入LuxR基因，激活后表达LuxR蛋白，该蛋白为AHL的特异性受体</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-accent font-semibold">C</span>
+                                </div>
+                                <div>
+                                    <p>AHL与LuxR蛋白结合形成二聚体，该复合物可特异性激活Puxl启动子，进而调控下游抗炎因子基因的转录表达</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-accent/5 rounded-lg p-4">
+                            <p class="text-gray-700 text-sm italic">
+                                <i class="fa-solid fa-lightbulb text-accent mr-2"></i>
+                                该设计实现了天然的AND逻辑门：仅当NO和硫代硫酸盐同时存在时，才会完成完整的信号传导通路，启动抗炎因子表达
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 逻辑门示意图 -->
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                    <h3 class="text-xl font-heading font-semibold mb-6 text-center">AND逻辑门调控示意图</h3>
+                    <div class="flex flex-col items-center">
+                        <div class="w-full max-w-2xl bg-gray-50 rounded-lg p-6">
+                            <div class="flex flex-wrap justify-center items-center gap-4">
+                                <!-- 输入信号 -->
+                                <div class="text-center">
+                                    <div class="bg-primary/10 py-3 px-4 rounded-lg mb-2 font-medium">NO ↑</div>
+                                    <i class="fa-solid fa-arrow-down text-gray-500"></i>
+                                    <div class="mt-2 bg-primary/5 py-2 px-3 rounded text-sm">激活PnorV启动子</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-secondary/10 py-3 px-4 rounded-lg mb-2 font-medium">硫代硫酸盐 ↑</div>
+                                    <i class="fa-solid fa-arrow-down text-gray-500"></i>
+                                    <div class="mt-2 bg-secondary/5 py-2 px-3 rounded text-sm">激活PphsA启动子</div>
+                                </div>
+                                
+                                <!-- 逻辑门 -->
+                                <div class="mx-4">
+                                    <div class="border-2 border-gray-300 rounded-lg py-6 px-8 bg-white shadow-sm">
+                                        <div class="text-lg font-semibold mb-2">AND 逻辑门</div>
+                                        <div class="text-sm text-gray-600">LuxI/LuxR系统</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 输出信号 -->
+                                <div class="text-center">
+                                    <i class="fa-solid fa-arrow-up text-gray-500 mb-2"></i>
+                                    <div class="bg-accent/10 py-3 px-4 rounded-lg font-medium text-accent">
+                                        抗炎因子表达
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 脑肠轴通路 -->
+    <section id="brain-gut" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">脑肠轴作用通路</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 mb-8 card-hover">
+                    <p class="text-gray-700 leading-relaxed mb-8">
+                        工程益生菌产生的抗炎因子和代谢产物通过脑肠轴（Gut-Brain Axis）这一肠道菌群与中枢神经系统之间的双向通信网络，
+                        实现从肠道局部到中枢神经的信号传递，最终缓解抑郁症状。脑肠轴主要通过以下四种核心通路发挥作用：
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-all hover:shadow-md">
+                            <div class="flex items-center mb-4">
+                                <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mr-4 text-base font-bold">A</span>
+                                <h4 class="text-lg font-semibold">短链脂肪酸(SCFAs)与胆汁酸通路</h4>
+                            </div>
+                            <div class="space-y-3 text-gray-700 leading-relaxed">
+                                <p>
+                                    工程菌产生的短链脂肪酸（丁酸盐、乙酸盐、丙酸盐）可：
+                                </p>
+                                <ul class="list-disc list-inside ml-2 space-y-1 text-sm">
+                                    <li>调节宿主免疫细胞功能，抑制促炎因子释放</li>
+                                    <li>通过血脑屏障进入中枢神经系统，调节小胶质细胞活性</li>
+                                    <li>激活肠道上皮细胞的G蛋白偶联受体(GPR41/43)</li>
+                                </ul>
+                                <p class="mt-2 text-sm">
+                                    同时，胆汁酸经肠道菌群转化为次级胆汁酸，通过系统循环运输至大脑，调节神经递质释放。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-all hover:shadow-md">
+                            <div class="flex items-center mb-4">
+                                <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mr-4 text-base font-bold">B</span>
+                                <h4 class="text-lg font-semibold">HPA轴激活通路</h4>
+                            </div>
+                            <div class="space-y-3 text-gray-700 leading-relaxed">
+                                <p>
+                                    大肠固有免疫细胞产生的细胞因子通过以下途径作用于大脑：
+                                </p>
+                                <ul class="list-disc list-inside ml-2 space-y-1 text-sm">
+                                    <li>激活下丘脑-垂体-肾上腺(HPA)轴，调节皮质醇分泌</li>
+                                    <li>皮质醇通过血脑屏障刺激海马体、杏仁核等情绪调控区域</li>
+                                    <li>工程菌的抗炎因子可抑制过度激活的HPA轴，恢复应激平衡</li>
+                                </ul>
+                                <p class="mt-2 text-sm">
+                                    该通路是炎症与抑郁情绪关联的核心机制之一。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-all hover:shadow-md">
+                            <div class="flex items-center mb-4">
+                                <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mr-4 text-base font-bold">C</span>
+                                <h4 class="text-lg font-semibold">迷走神经通信通路</h4>
+                            </div>
+                            <div class="space-y-3 text-gray-700 leading-relaxed">
+                                <p>
+                                    迷走神经作为大脑与肠道的直接连接通路：
+                                </p>
+                                <ul class="list-disc list-inside ml-2 space-y-1 text-sm">
+                                    <li>建立大脑与肠道菌群的双向电化学通信</li>
+                                    <li>肠道内分泌细胞分泌的5-HT等激素直接作用于迷走神经末梢</li>
+                                    <li>工程菌可调节肠道激素分泌，通过迷走神经改善情绪</li>
+                                </ul>
+                                <p class="mt-2 text-sm">
+                                    迷走神经切断实验已证实其在菌群-脑通信中的关键作用。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-all hover:shadow-md">
+                            <div class="flex items-center mb-4">
+                                <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mr-4 text-base font-bold">D</span>
+                                <h4 class="text-lg font-semibold">神经递质合成通路</h4>
+                            </div>
+                            <div class="space-y-3 text-gray-700 leading-relaxed">
+                                <p>
+                                    肠道微生物可合成多种关键神经递质：
+                                </p>
+                                <ul class="list-disc list-inside ml-2 space-y-1 text-sm">
+                                    <li>5-羟色胺(5-HT)：90%的体内5-HT由肠道肠嗜铬细胞合成</li>
+                                    <li>多巴胺：调节奖赏和动机的核心神经递质</li>
+                                    <li>γ-氨基丁酸(GABA)：主要的抑制性神经递质，抗焦虑/抑郁</li>
+                                </ul>
+                                <p class="mt-2 text-sm">
+                                    所选菌株本身即可产生GABA，经基因编辑后产量进一步提升，直接改善中枢神经递质平衡。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                    <h3 class="text-xl font-heading font-semibold mb-6 text-center">通路协同作用机制</h3>
+                    <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-6">
+                        <p class="text-gray-700 leading-relaxed text-center mb-6">
+                            四种通路并非独立作用，而是形成协同网络，共同实现抗炎抗抑郁效果：
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4 text-center">
+                            <div class="bg-white p-4 rounded-lg shadow-sm w-[200px]">
+                                <i class="fa-solid fa-circle-nodes text-primary text-2xl mb-2"></i>
+                                <h4 class="font-semibold mb-1">免疫调节</h4>
+                                <p class="text-sm text-gray-600">SCFAs + 抗炎因子</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm w-[200px]">
+                                <i class="fa-solid fa-brain text-secondary text-2xl mb-2"></i>
+                                <h4 class="font-semibold mb-1">神经调节</h4>
+                                <p class="text-sm text-gray-600">神经递质 + 迷走神经</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm w-[200px]">
+                                <i class="fa-solid fa-hormones text-accent text-2xl mb-2"></i>
+                                <h4 class="font-semibold mb-1">内分泌调节</h4>
+                                <p class="text-sm text-gray-600">HPA轴 + 胆汁酸</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 菌种选择 -->
+    <section id="strains" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">菌种选择与优化</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover mb-8">
+                    <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                        <i class="fa-solid fa-flask-vial text-secondary mr-3"></i>
+                        菌种选择的核心依据
+                    </h3>
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p>
+                            选择乳酸杆菌和双歧杆菌作为工程菌底盘的核心原因：
+                        </p>
+                        <ul class="list-disc list-inside ml-2 space-y-2">
+                            <li>两种菌均为人体肠道固有益生菌，安全性经过长期验证，定植能力强</li>
+                            <li>天然具备GABA合成能力，无需完全从头构建合成通路，降低基因编辑复杂度</li>
+                            <li>存在天然的协同作用：乳酸杆菌的代谢产物可降低肠道pH值，为双歧杆菌提供适宜的生存环境</li>
+                            <li>基因操作体系成熟，具备完善的转化、编辑、表达工具</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-bacterium text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold">核心菌株一：青春双歧杆菌150菌株</h3>
+                        </div>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">核心优势</h4>
+                                    <p class="text-sm">GABA产率为所有双歧杆菌菌株中最高，可达2.8g/L，具备天然的抗抑郁潜力</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">生理特性</h4>
+                                    <p class="text-sm">耐胃酸和胆盐能力强，可顺利通过上消化道到达大肠定植</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-cogs text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">工程改造</h4>
+                                    <p class="text-sm">在原有GABA合成通路基础上，增强关键酶（谷氨酸脱羧酶）的表达量</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-bacterium text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold">核心菌株二：植物乳杆菌WCFS1菌株</h3>
+                        </div>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">核心优势</h4>
+                                    <p class="text-sm">基因工程可操作性极高，全基因组已测序，具备完善的基因编辑工具库</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">功能定位</h4>
+                                    <p class="text-sm">作为炎症监测和响应的核心菌株，整合NO/硫代硫酸盐识别系统</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa-solid fa-handshake-angle text-primary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold mb-1">协同作用</h4>
+                                    <p class="text-sm">代谢产生的乳酸和乙酸可促进青春双歧杆菌150菌株的生长和定植</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                    <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                        <i class="fa-solid fa-puzzle-piece text-primary mr-3"></i>
+                        辅助成分设计
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-primary">辅助益生菌菌株</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-plus-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>嗜酸乳杆菌NCFM：增强肠道屏障功能</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-plus-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>双歧杆菌BB-12：调节免疫反应，增强定植抗力</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-plus-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>鼠李糖乳杆菌GG：增强肠道黏膜黏附能力</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-primary">益生元配方</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-seedling text-green-500 mt-1 mr-2"></i>
+                                    <span>低聚果糖(FOS)：选择性促进双歧杆菌生长</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-seedling text-green-500 mt-1 mr-2"></i>
+                                    <span>低聚半乳糖(GOS)：增强益生菌定植能力</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-seedling text-green-500 mt-1 mr-2"></i>
+                                    <span>菊粉：提供持续的碳源，延长益生菌存活时间</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-primary/5 rounded-lg p-4">
+                        <p class="text-gray-700 text-sm">
+                            <i class="fa-solid fa-info-circle text-primary mr-2"></i>
+                            辅助成分的加入旨在构建稳定的益生菌群落，增强核心菌株的定植能力和功效持续性，同时扩大治疗谱。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 光电胶囊 -->
+    <section id="capsule" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">光电胶囊设计与组装</h2>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover mb-8">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                                <i class="fa-solid fa-ruler-combined text-primary mr-3"></i>
+                                物理规格与结构设计
+                            </h3>
+                            <div class="space-y-5 text-gray-700 leading-relaxed">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-ruler-vertical text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">尺寸参数</h4>
+                                        <ul class="text-sm space-y-1">
+                                            <li>直径：14毫米（适配肠道通过性）</li>
+                                            <li>长度：33毫米（确保功能模块集成）</li>
+                                            <li>重量：<8克（无吞咽不适感）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-layer-group text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">结构设计</h4>
+                                        <p class="text-sm">
+                                            胶囊内部搭载定制化印刷电路板(PCB)，采用层叠式布局集成所有功能模块，
+                                            外部采用医用级聚碳酸酯外壳，具备耐胃酸、可降解特性，确保在肠道内稳定工作。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-shield-virus text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">生物相容性</h4>
+                                        <p class="text-sm">
+                                            所有接触人体的材料均通过ISO 10993生物相容性认证，无致敏性和毒性，
+                                            胶囊外壳在完成使命后可自然排出体外。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                                <i class="fa-solid fa-power-battery text-primary mr-3"></i>
+                                供电与通信系统
+                            </h3>
+                            <div class="space-y-5 text-gray-700 leading-relaxed">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-battery-full text-yellow-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">供电系统</h4>
+                                        <p class="text-sm">
+                                            采用三颗LR754型纽扣电池（KOONENDA品牌）串联供电，总输出电压4.5伏，
+                                            能量密度达280mAh/g，可持续工作72小时，满足单次治疗周期需求。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-bluetooth text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">无线通信模块</h4>
+                                        <p class="text-sm">
+                                            集成nRF52832 BLE蓝牙模块 + 2.4GHz陶瓷天线，通信距离可达5米，
+                                            可与智能手机APP实时通信，传输监测数据并接收控制指令。
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa-solid fa-mobile-screen-button text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">交互方式</h4>
+                                        <p class="text-sm">
+                                            支持双向数据传输：胶囊向手机发送生物发光监测数据，手机向胶囊发送LED激活指令，
+                                            实现治疗过程的实时监控和精准调控。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                            <i class="fa-solid fa-microscope text-secondary mr-3"></i>
+                            生物发光检测系统
+                        </h3>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="border-l-4 border-secondary p-4 bg-green-50 rounded-r">
+                                <h4 class="font-semibold mb-2">核心组件</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-cube text-secondary mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">光电倍增管：</span>TP3050型（Joinbon Technology）
+                                            <p class="text-sm mt-1">检测灵敏度达10-18 lumens，可识别单个光子信号</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-wave-square text-secondary mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">信号放大器：</span>ADA4530-1ARZ型（Analog Devices）
+                                            <p class="text-sm mt-1">低噪声运算放大器，增益可调范围1-1000倍</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-2">工作原理</h4>
+                                <p class="text-sm">
+                                    工程菌在激活后会表达荧光素酶，产生特异性生物发光信号，光电倍增管将光信号转换为电信号，
+                                    经放大器放大后通过蓝牙传输至手机端，实现炎症部位和益生菌分布的可视化监测。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <h3 class="text-xl font-heading font-semibold mb-6 flex items-center">
+                            <i class="fa-solid fa-lightbulb-on text-accent mr-3"></i>
+                            光遗传激活系统
+                        </h3>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="border-l-4 border-accent p-4 bg-purple-50 rounded-r">
+                                <h4 class="font-semibold mb-2">核心组件</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-lightbulb text-accent mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">LED光源：</span>三颗Ncd0402g1型（佛山国星光电）
+                                            <p class="text-sm mt-1">绿光发射波长532nm，光功率密度10 mW/cm²</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa-solid fa-sliders text-accent mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">亮度控制：</span>0-100%可调
+                                            <p class="text-sm mt-1">通过PWM信号精确调控光强度，适配不同激活需求</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold mb-2">工作原理</h4>
+                                <p class="text-sm">
+                                    工程菌经光遗传改造，表达光敏感通道蛋白(ChR2)，当胶囊释放特定波长的绿光时，
+                                    通道蛋白激活，触发下游抗炎因子和GABA的表达释放，实现精准的时空调控。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 安全机制 -->
+    <section id="safety" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">安全控制机制</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-toilet text-red-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold">体外排出死亡机制</h3>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="bg-red-50 rounded-lg p-4 mb-4">
+                                <p class="font-medium text-red-600 mb-1">核心原理：利用肠道与外界葡萄糖浓度的差异</p>
+                                <p class="text-sm">肠道内葡萄糖浓度：~5-10 mM | 外界环境葡萄糖浓度：<0.1 mM</p>
+                            </div>
+                            
+                            <ol class="list-decimal list-inside ml-2 space-y-3">
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">启动子选择：</span>
+                                    <span class="text-sm">使用葡萄糖缺乏启动子 PT-αcrp，该启动子在低葡萄糖环境下特异性激活</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">触发条件：</span>
+                                    <span class="text-sm">工程菌被排出体外后，外界葡萄糖浓度急剧降低（<0.1 mM）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">分子机制：</span>
+                                    <span class="text-sm">PT-αcrp启动子激活，驱动MazF基因转录表达</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">致死效应：</span>
+                                    <span class="text-sm">MazF编码一种序列特异性内核酸酶，可降解细菌mRNA，导致微生物死亡但不裂解，避免基因水平转移</span>
+                                </li>
+                            </ol>
+                            
+                            <div class="mt-4 bg-primary/5 rounded-lg p-4">
+                                <p class="text-sm flex items-start">
+                                    <i class="fa-solid fa-shield-halved text-primary mt-1 mr-2"></i>
+                                    <span>安全保障：该机制可确保工程菌在排出体外后24小时内100%死亡，完全消除环境释放和扩散风险</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-droplet text-blue-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold">体内异位转移死亡机制</h3>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                                <p class="font-medium text-blue-600 mb-1">核心原理：利用肠道与血液的磷酸盐浓度差异</p>
+                                <p class="text-sm">肠道内磷酸盐浓度：~1-2 mM | 血液中磷酸盐浓度：~3-4 mM</p>
+                            </div>
+                            
+                            <ol class="list-decimal list-inside ml-2 space-y-3">
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">启动子选择：</span>
+                                    <span class="text-sm">使用PphoB外部磷酸感应启动子，高磷酸盐浓度下受抑制</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">触发条件：</span>
+                                    <span class="text-sm">工程菌从肠道转移至血管/其他器官，外部磷酸盐浓度升高</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">调控机制：</span>
+                                    <span class="text-sm">PphoB启动子受抑制 → Tet基因表达受限 → PTet启动子去抑制激活</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-medium mr-2">致死效应：</span>
+                                    <span class="text-sm">PTet启动子激活后转录MazF基因，编码内核酸酶导致细菌死亡</span>
+                                </li>
+                            </ol>
+                            
+                            <div class="mt-4 bg-primary/5 rounded-lg p-4">
+                                <p class="text-sm flex items-start">
+                                    <i class="fa-solid fa-shield-halved text-primary mt-1 mr-2"></i>
+                                    <span>安全保障：该机制可防止工程菌在体内异位定植和扩散，保障宿主安全</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-8 card-hover">
+                    <h3 class="text-xl font-heading font-semibold mb-6 text-center">安全机制总结与验证</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <div class="border border-gray-200 rounded-lg p-5 text-center hover:border-primary transition-colors">
+                            <i class="fa-solid fa-globe text-primary text-3xl mb-3"></i>
+                            <h4 class="font-semibold mb-2">环境安全</h4>
+                            <p class="text-sm text-gray-600">
+                                体外自动死亡机制<br>
+                                24小时死亡率100%<br>
+                                无水平基因转移风险
+                            </p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-5 text-center hover:border-primary transition-colors">
+                            <i class="fa-solid fa-heart text-red-500 text-3xl mb-3"></i>
+                            <h4 class="font-semibold mb-2">宿主安全</h4>
+                            <p class="text-sm text-gray-600">
+                                异位转移自动死亡<br>
+                                仅在靶部位存活<br>
+                                无免疫原性风险
+                            </p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-5 text-center hover:border-primary transition-colors">
+                            <i class="fa-solid fa-lock text-dark text-3xl mb-3"></i>
+                            <h4 class="font-semibold mb-2">双重保障</h4>
+                            <p class="text-sm text-gray-600">
+                                内外双重安全机制<br>
+                                分子水平精准调控<br>
+                                全生命周期可控
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h4 class="font-semibold mb-3 flex items-center">
+                            <i class="fa-solid fa-vial-circle-check text-primary mr-3"></i>
+                            安全性验证实验
+                        </h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>体外存活实验：工程菌在模拟环境水体中24小时内全部死亡</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>动物实验验证：小鼠模型中未检测到工程菌异位定植</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>基因稳定性测试：连续传代50代后安全机制仍保持功能完整</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目团队 -->
+    <section id="team" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-heading font-bold mb-8 text-center">项目团队</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-10">
+                    <!-- 团队成员卡片 -->
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                            <i class="fa-solid fa-user text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">林梓鑫</h3>
+                        <p class="text-gray-500 text-sm mb-3">团队成员</p>
+                        <div class="text-xs text-gray-600">
+                            <p>主要负责：基因编辑系统设计</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                            <i class="fa-solid fa-user text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">陶宇轩</h3>
+                        <p class="text-gray-500 text-sm mb-3">团队成员</p>
+                        <div class="text-xs text-gray-600">
+                            <p>主要负责：脑肠轴机制研究</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                            <i class="fa-solid fa-user text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">李郑岚</h3>
+                        <p class="text-gray-500 text-sm mb-3">团队成员</p>
+                        <div class="text-xs text-gray-600">
+                            <p>主要负责：菌种筛选与优化</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                            <i class="fa-solid fa-user text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">郑汉宸</h3>
+                        <p class="text-gray-500 text-sm mb-3">团队成员</p>
+                        <div class="text-xs text-gray-600">
+                            <p>主要负责：光电胶囊设计</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                            <i class="fa-solid fa-user text-primary text-4xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">劳一铭</h3>
+                        <p class="text-gray-500 text-sm mb-3">团队成员</p>
+                        <div class="text-xs text-gray-600">
+                            <p>主要负责：安全机制验证</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 可编辑区域 -->
+                <div class="bg-white rounded-xl shadow-md p-8 border-2 border-dashed border-gray-300 hover:border-primary transition-colors">
+                    <h3 class="text-xl font-heading font-semibold mb-6 text-center text-gray-700">
+                        <i class="fa-solid fa-pen-to-square mr-2"></i>团队补充信息（可编辑）
+                    </h3>
+                    <div class="min-h-[150px] flex flex-col items-center justify-center">
+                        <p class="text-gray-500 text-center mb-4">
+                            在此处添加团队的更多详细信息：
+                        </p>
+                        <ul class="text-gray-500 text-center space-y-2">
+                            <li>团队分工与职责说明</li>
+                            <li>研究背景与专业领域</li>
+                            <li>项目时间线与进展</li>
+                            <li>合作机构与指导老师</li>
+                            <li>联系方式与沟通渠道</li>
+                        </ul>
+                        <div class="mt-6 w-full max-w-md">
+                            <textarea class="w-full h-32 border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="请输入补充信息..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-dna text-primary text-3xl mr-3"></i>
+                    <h2 class="text-2xl font-heading font-bold">基因编辑益生菌 - 抗炎抗抑郁项目</h2>
+                </div>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    精准监测 · 智能响应 · 安全可控 · 协同治疗
+                </p>
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="#overview" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-book text-xl"></i>
+                        <p class="text-xs mt-1">项目概述</p>
+                    </a>
+                    <a href="#inflammation" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-flask text-xl"></i>
+                        <p class="text-xs mt-1">炎症监测</p>
+                    </a>
+                    <a href="#brain-gut" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                        <p class="text-xs mt-1">脑肠轴通路</p>
+                    </a>
+                    <a href="#strains" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-bacterium text-xl"></i>
+                        <p class="text-xs mt-1">菌种选择</p>
+                    </a>
+                    <a href="#capsule" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-pills text-xl"></i>
+                        <p class="text-xs mt-1">光电胶囊</p>
+                    </a>
+                    <a href="#safety" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                        <p class="text-xs mt-1">安全机制</p>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2025 基因编辑益生菌研究团队 保留所有权利 | 本项目仅用于学术研究
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90 z-50">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+        
+        // 导航栏滚动效果
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-3');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 卡片悬停动画增强
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 15px 30px -10px rgba(0,0,0,0.1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // 滚动动画
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.card-hover');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 0;
+                
+                if (isVisible) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // 初始化元素状态
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // 初始加载和滚动时触发动画
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
